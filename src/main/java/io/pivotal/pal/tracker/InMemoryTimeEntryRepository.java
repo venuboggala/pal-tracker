@@ -29,9 +29,9 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry find(long l) {
+    public TimeEntry find(Long id) {
 
-        return timeEntryMap.get(l);
+        return timeEntryMap.get(id);
     }
 
     @Override
@@ -42,8 +42,8 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry update(long eq, TimeEntry any) {
-        TimeEntry timeEntry = timeEntryMap.get(eq);
+    public TimeEntry update(Long id, TimeEntry any) {
+        TimeEntry timeEntry = timeEntryMap.get(id);
         // add setters for timeEntry, and update timeEntry with any
         if (timeEntry != null) {
             timeEntry.setDate(any.getDate());
@@ -55,7 +55,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public void delete(long l) {
-        timeEntryMap.remove(l);
+    public void delete(Long id) {
+        timeEntryMap.remove(id);
     }
 }
